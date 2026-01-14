@@ -12,3 +12,6 @@ images/previews/
 # Editor directories
 .idea/
 .vscode/
+
+# Local Netlify folder
+.netlify

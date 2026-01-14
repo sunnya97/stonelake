@@ -1,6 +1,6 @@
-# Stone Lake Inn Website
+# Stone Lake Retreat Website
 
-A beautiful, rustic website for Stone Lake Inn - a bed & breakfast in the Pocono Mountains.
+A beautiful, rustic website for Stone Lake Retreat - a bed & breakfast in the Pocono Mountains.
 
 ## Quick Start
 
@@ -150,4 +150,4 @@ Example prompts:
 
 ---
 
-Built with care for Stone Lake Inn.
+Built with care for Stone Lake Retreat.
