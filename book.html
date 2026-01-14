@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book your stay at Stone Lake Inn. Request availability for our unique guest rooms in the Pocono Mountains.">
+  <title>Book Your Stay | Stone Lake Inn</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    .booking-intro {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--space-xl);
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .booking-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .booking-sidebar {
+      background: var(--white);
+      padding: var(--space-lg);
+      position: sticky;
+      top: 100px;
+    }
+    .booking-sidebar h3 {
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .room-quick-list {
+      margin-bottom: var(--space-md);
+    }
+    .room-quick-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--cream);
+    }
+    .room-quick-item:last-child {
+      border-bottom: none;
+    }
+    .room-quick-item span {
+      font-size: 0.9375rem;
+    }
+    .room-quick-item .room-type {
+      font-size: 0.8125rem;
+      color: var(--charcoal-light);
+    }
+    .contact-quick {
+      background: var(--cream);
+      padding: var(--space-md);
+      margin-top: var(--space-md);
+    }
+    .contact-quick h4 {
+      margin-bottom: var(--space-sm);
+    }
+    .contact-quick p {
+      font-size: 0.9375rem;
+      margin-bottom: 0.5rem;
+    }
+    .contact-quick a {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .form-note {
+      font-size: 0.875rem;
+      color: var(--charcoal-light);
+      font-style: italic;
+      margin-top: var(--space-xs);
+    }
+    .policy-section {
+      background: var(--white);
+      padding: var(--space-lg);
+      margin-top: var(--space-lg);
+    }
+    .policy-section h3 {
+      margin-bottom: var(--space-md);
+    }
+    .policy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+    @media (max-width: 768px) {
+      .policy-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .policy-item h4 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--forest);
+    }
+    .policy-item h4 svg {
+      width: 20px;
+      height: 20px;
+    }
+    .policy-item p {
+      font-size: 0.9375rem;
+      color: var(--charcoal-light);
+    }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: var(--space-xl);
+      background: var(--cream);
+    }
+    .form-success.show {
+      display: block;
+    }
+    .form-success svg {
+      width: 64px;
+      height: 64px;
+      color: var(--forest);
+      margin-bottom: var(--space-sm);
+    }
+    .form-success h3 {
+      margin-bottom: var(--space-sm);
+    }
+    .booking-form-container.hide {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-name">Stone Lake Inn</span>
+        <span class="logo-tagline">Pocono Mountains</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="accommodations.html" class="nav-link">Accommodations</a>
+        <a href="property.html" class="nav-link">The Property</a>
+        <a href="things-to-do.html" class="nav-link">Things To Do</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="book.html" class="nav-link nav-cta active">Book Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Hero (smaller) -->
+  <section class="hero page-hero" style="min-height: 40vh;">
+    <img src="images/booking-hero.jpg" alt="Stone Lake Inn at sunset" class="hero-image">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Book Your Stay</h1>
+      <p class="hero-subtitle">Your Pocono retreat awaits</p>
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section class="section booking-section">
+    <div class="container">
+      <div class="booking-intro reveal mb-lg">
+        <p class="lead">We're currently accepting bookings by request. Fill out the form below with your preferred dates and room, and we'll get back to you within 24 hours to confirm availability.</p>
+      </div>
+
+      <div class="booking-grid">
+        <!-- Booking Form -->
+        <div>
+          <!-- Success Message -->
+          <div class="form-success" id="formSuccess">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <h3>Request Received!</h3>
+            <p>Thank you for your interest in Stone Lake Inn. We'll review your request and respond within 24 hours with availability and next steps.</p>
+            <a href="index.html" class="btn btn-secondary mt-md">Return Home</a>
+          </div>
+
+          <!-- Form -->
+          <div class="booking-form-container" id="formContainer">
+            <!--
+              INTEGRATION NOTE:
+              This form is ready for Formspree integration. To enable:
+              1. Sign up at formspree.io
+              2. Create a new form
+              3. Replace the action URL below with your Formspree endpoint
+              Example: action="https://formspree.io/f/YOUR_FORM_ID"
+            -->
+            <form class="booking-form reveal" id="bookingForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First Name *</label>
+                  <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name *</label>
+                  <input type="text" id="lastName" name="lastName" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email">Email Address *</label>
+                  <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="checkIn">Check-In Date *</label>
+                  <input type="date" id="checkIn" name="checkIn" required>
+                </div>
+                <div class="form-group">
+                  <label for="checkOut">Check-Out Date *</label>
+                  <input type="date" id="checkOut" name="checkOut" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="room">Preferred Room</label>
+                  <select id="room" name="room">
+                    <option value="">No preference</option>
+                    <option value="emerald">The Emerald Room (Largest, En-Suite)</option>
+                    <option value="aviator">The Aviator Room (Aviation Theme)</option>
+                    <option value="wine">The Wine Room (Rustic Charm)</option>
+                    <option value="loft1">Loft Room One (Third Floor)</option>
+                    <option value="loft2">Loft Room Two (Third Floor)</option>
+                    <option value="multiple">Multiple Rooms / Whole House</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="guests">Number of Guests *</label>
+                  <select id="guests" name="guests" required>
+                    <option value="1">1 Guest</option>
+                    <option value="2" selected>2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                    <option value="5">5 Guests</option>
+                    <option value="6+">6+ Guests</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="occasion">Special Occasion?</label>
+                <select id="occasion" name="occasion">
+                  <option value="">None / Just a getaway</option>
+                  <option value="anniversary">Anniversary</option>
+                  <option value="birthday">Birthday</option>
+                  <option value="honeymoon">Honeymoon</option>
+                  <option value="family">Family Reunion</option>
+                  <option value="friends">Friends Trip</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Additional Information</label>
+                <textarea id="message" name="message" placeholder="Tell us about your trip, any special requests, or questions you have..."></textarea>
+                <p class="form-note">Let us know if you're planning any special activities like skydiving, paintball, or if you have any accessibility needs.</p>
+              </div>
+
+              <div class="form-group">
+                <label style="display: flex; align-items: flex-start; gap: 0.5rem; cursor: pointer; text-transform: none; letter-spacing: normal;">
+                  <input type="checkbox" name="policies" required style="width: auto; margin-top: 0.25rem;">
+                  <span style="font-size: 0.9375rem; line-height: 1.5;">I have read and agree to the booking policies below. *</span>
+                </label>
+              </div>
+
+              <button type="submit" class="form-submit">Send Booking Request</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="booking-sidebar reveal">
+          <h3>Our Rooms</h3>
+          <div class="room-quick-list">
+            <div class="room-quick-item">
+              <div>
+                <span>The Emerald Room</span><br>
+                <span class="room-type">Largest | Private En-Suite</span>
+              </div>
+              <a href="accommodations.html#emerald" class="room-card-link">View</a>
+            </div>
+            <div class="room-quick-item">
+              <div>
+                <span>The Aviator Room</span><br>
+                <span class="room-type">Aviation Theme | Hall Bath</span>
+              </div>
+              <a href="accommodations.html#aviator" class="room-card-link">View</a>
+            </div>
+            <div class="room-quick-item">
+              <div>
+                <span>The Wine Room</span><br>
+                <span class="room-type">Rustic Charm | Hall Bath</span>
+              </div>
+              <a href="accommodations.html#wine" class="room-card-link">View</a>
+            </div>
+            <div class="room-quick-item">
+              <div>
+                <span>Loft Rooms (2)</span><br>
+                <span class="room-type">Cozy | Shared Bath</span>
+              </div>
+              <a href="accommodations.html#third-floor" class="room-card-link">View</a>
+            </div>
+          </div>
+
+          <div class="contact-quick">
+            <h4>Prefer to Call?</h4>
+            <p>We're happy to answer questions or take your booking by phone.</p>
+            <a href="tel:+15701234567">(570) 123-4567</a>
+            <a href="mailto:hello@stonelakeinn.com">hello@stonelakeinn.com</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Policies Section -->
+      <div class="policy-section reveal" id="policies">
+        <h3>Booking Policies</h3>
+        <div class="policy-grid">
+          <div class="policy-item">
+            <h4>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              Check-In / Check-Out
+            </h4>
+            <p>Check-in is at 3:00 PM. Check-out is at 11:00 AM. Early check-in or late check-out may be available upon request.</p>
+          </div>
+
+          <div class="policy-item">
+            <h4>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Cancellation
+            </h4>
+            <p>Full refund if cancelled 7+ days before arrival. Cancellations within 7 days are subject to a one-night charge.</p>
+          </div>
+
+          <div class="policy-item">
+            <h4>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Guests
+            </h4>
+            <p>Maximum occupancy varies by room. Please inquire for groups larger than 10 guests or whole-house rentals.</p>
+          </div>
+
+          <div class="policy-item">
+            <h4>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+              Pets
+            </h4>
+            <p>Please inquire about pet policies. Some restrictions may apply.</p>
+          </div>
+
+          <div class="policy-item">
+            <h4>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+              Smoking
+            </h4>
+            <p>Stone Lake Inn is a non-smoking property. Smoking is only permitted in designated outdoor areas.</p>
+          </div>
+
+          <div class="policy-item">
+            <h4>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+              Payment
+            </h4>
+            <p>A deposit may be required to confirm your booking. Final payment details will be provided upon confirmation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo-name">Stone Lake Inn</span>
+          <p>A rustic retreat in the heart of the Pocono Mountains. Private lake, unique accommodations, and adventure at your doorstep.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="accommodations.html">Accommodations</a>
+          <a href="property.html">The Property</a>
+          <a href="things-to-do.html">Things To Do</a>
+          <a href="about.html">About Us</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Book</h4>
+          <a href="book.html">Reserve a Room</a>
+          <a href="book.html#policies">Policies</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:hello@stonelakeinn.com">hello@stonelakeinn.com</a>
+          <a href="tel:+15701234567">(570) 123-4567</a>
+          <p style="margin-top: 0.5rem; font-size: 0.875rem; color: rgba(245,241,235,0.6);">
+            407 Greenview Dr<br>
+            Saylorsburg, PA 18353
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Stone Lake Inn. All rights reserved.</p>
+        <p>Saylorsburg, Pennsylvania</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script>
+    // Simple form handling for demo
+    // In production, this would be handled by Formspree or similar
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      // If using Formspree, remove this preventDefault
+      // The form will submit normally to Formspree and redirect back
+
+      // For demo purposes, show success message
+      // Remove this block when using Formspree
+      e.preventDefault();
+      document.getElementById('formContainer').classList.add('hide');
+      document.getElementById('formSuccess').classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Set minimum date to today for date inputs
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('checkIn').setAttribute('min', today);
+    document.getElementById('checkOut').setAttribute('min', today);
+
+    // Update checkout minimum when checkin changes
+    document.getElementById('checkIn').addEventListener('change', function() {
+      document.getElementById('checkOut').setAttribute('min', this.value);
+      if (document.getElementById('checkOut').value < this.value) {
+        document.getElementById('checkOut').value = this.value;
+      }
+    });
+  </script>
+</body>
+</html>

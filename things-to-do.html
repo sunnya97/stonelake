@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover amazing activities near Stone Lake Inn - from world-class waterparks to scenic wineries, hiking trails, skiing, and the best of the Pocono Mountains.">
+  <title>Things To Do | Stone Lake Inn</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    .activity-card {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      overflow: hidden;
+      margin-bottom: var(--space-md);
+      transition: all var(--transition-medium);
+    }
+    .activity-card:hover {
+      box-shadow: var(--shadow-strong);
+    }
+    @media (max-width: 768px) {
+      .activity-card {
+        grid-template-columns: 1fr;
+      }
+    }
+    .activity-card-image {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      background: var(--cream-dark);
+    }
+    .activity-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    .activity-card:hover .activity-card-image img {
+      transform: scale(1.05);
+    }
+    .activity-card-content {
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .activity-card-content h3 {
+      margin-bottom: var(--space-xs);
+    }
+    .activity-card-meta {
+      display: flex;
+      gap: var(--space-md);
+      margin-bottom: var(--space-sm);
+      font-size: 0.875rem;
+      flex-wrap: wrap;
+    }
+    .activity-card-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      color: var(--forest);
+    }
+    .activity-card-meta svg {
+      width: 16px;
+      height: 16px;
+    }
+    .activity-card-content p {
+      color: var(--charcoal-light);
+      margin-bottom: var(--space-sm);
+    }
+    .activity-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--burgundy);
+      font-size: 0.9375rem;
+      margin-top: auto;
+    }
+    .activity-card-link svg {
+      width: 16px;
+      height: 16px;
+      transition: transform var(--transition-fast);
+    }
+    .activity-card-link:hover svg {
+      transform: translateX(4px);
+    }
+    .on-property-activities {
+      background: var(--forest);
+      color: var(--cream);
+      padding: var(--space-xl) 0;
+    }
+    .on-property-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+    @media (max-width: 768px) {
+      .on-property-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .on-property-item {
+      text-align: center;
+      padding: var(--space-md);
+      background: rgba(245, 241, 235, 0.1);
+      transition: all var(--transition-medium);
+    }
+    .on-property-item:hover {
+      background: rgba(245, 241, 235, 0.15);
+    }
+    .on-property-item svg {
+      width: 40px;
+      height: 40px;
+      margin-bottom: var(--space-sm);
+      color: var(--gold);
+    }
+    .on-property-item h4 {
+      color: var(--cream);
+      margin-bottom: 0.25rem;
+    }
+    .on-property-item p {
+      font-size: 0.9375rem;
+      color: rgba(245, 241, 235, 0.8);
+    }
+    .highlight-list {
+      list-style: none;
+      margin: var(--space-sm) 0;
+      padding: 0;
+    }
+    .highlight-list li {
+      padding: 0.375rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      font-size: 0.9375rem;
+    }
+    .highlight-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.75rem;
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+    .winery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+    @media (max-width: 900px) {
+      .winery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .winery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .winery-card {
+      background: var(--white);
+      padding: var(--space-md);
+      text-align: center;
+      transition: all var(--transition-medium);
+    }
+    .winery-card:hover {
+      box-shadow: var(--shadow-medium);
+    }
+    .winery-card h4 {
+      margin-bottom: 0.25rem;
+    }
+    .winery-card p {
+      font-size: 0.875rem;
+      color: var(--charcoal-light);
+    }
+    .waterpark-comparison {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+    @media (max-width: 768px) {
+      .waterpark-comparison {
+        grid-template-columns: 1fr;
+      }
+    }
+    .waterpark-card {
+      background: var(--cream);
+      padding: var(--space-md);
+      text-align: center;
+    }
+    .waterpark-card h4 {
+      color: var(--burgundy);
+      margin-bottom: 0.5rem;
+    }
+    .waterpark-card .size {
+      font-size: 2rem;
+      font-family: var(--font-display);
+      color: var(--charcoal);
+      line-height: 1;
+    }
+    .waterpark-card .size-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--charcoal-light);
+      margin-bottom: var(--space-sm);
+    }
+    .waterpark-card p {
+      font-size: 0.875rem;
+      color: var(--charcoal-light);
+    }
+    .town-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md);
+    }
+    @media (max-width: 768px) {
+      .town-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-name">Stone Lake Inn</span>
+        <span class="logo-tagline">Pocono Mountains</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="accommodations.html" class="nav-link">Accommodations</a>
+        <a href="property.html" class="nav-link">The Property</a>
+        <a href="things-to-do.html" class="nav-link active">Things To Do</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="book.html" class="nav-link nav-cta">Book Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="hero page-hero">
+    <img src="images/poconos-adventure.jpg" alt="Outdoor adventure in the Pocono Mountains" class="hero-image">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Things To Do</h1>
+      <p class="hero-subtitle">Adventure, relaxation, and everything in between</p>
+    </div>
+  </section>
+
+  <!-- On Property Activities -->
+  <section class="on-property-activities">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" style="color: var(--gold);">On Property</span>
+        <h2 style="color: var(--cream);">No Need to Leave</h2>
+        <p style="color: rgba(245,241,235,0.8); max-width: 600px; margin: var(--space-sm) auto 0;">Our five-acre property offers plenty to keep you entertained without ever getting in the car.</p>
+      </div>
+
+      <div class="on-property-grid reveal">
+        <div class="on-property-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 17h18M5 17c0-3 2-6 7-6s7 3 7 6M8 11V8M12 11V6M16 11V8"/>
+          </svg>
+          <h4>Lake Activities</h4>
+          <p>Swimming, fishing, kayaking, and paddle boarding on our private 2-acre lake.</p>
+        </div>
+        <div class="on-property-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M8 12h8M12 8v8"/>
+          </svg>
+          <h4>Hot Tub & Sauna</h4>
+          <p>Relax and rejuvenate after a day of adventure in our outdoor hot tub or private sauna.</p>
+        </div>
+        <div class="on-property-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2C6.48 2 2 6 2 12s10 10 10 10 10-6 10-10S17.52 2 12 2z"/>
+          </svg>
+          <h4>Fire Pit Evenings</h4>
+          <p>S'mores, stargazing, and stories around the fire pit. Perfect for any season.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Adventure Activities -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Adventure</span>
+        <h2>Thrill Seekers Welcome</h2>
+        <p class="lead" style="max-width: 600px; margin: var(--space-sm) auto 0;">The Poconos are a haven for adventure. From skydiving across the street to world-class paintball and whitewater rapids.</p>
+      </div>
+
+      <!-- Skydiving -->
+      <div class="activity-card reveal">
+        <div class="activity-card-image">
+          <img src="images/skydiving-activity.jpg" alt="Skydiving at Pegasus Skydive Center">
+        </div>
+        <div class="activity-card-content">
+          <div class="activity-card-meta">
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Across the Street
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              Year-Round
+            </span>
+          </div>
+          <h3>Pegasus Skydive Center</h3>
+          <p>Located literally across the road from Stone Lake Inn, Pegasus Skydive Center offers tandem skydiving with experienced instructors. Even if you're not jumping, watching skydivers descend from our property is an experience in itself.</p>
+          <p>Their staff has over 87,000 jumps combined. First-timers welcome!</p>
+          <a href="https://skydivepegasus.com/" target="_blank" rel="noopener" class="activity-card-link">
+            Visit Website
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Skirmish Paintball -->
+      <div class="activity-card reveal">
+        <div class="activity-card-image">
+          <img src="images/paintball-activity.jpg" alt="Skirmish USA Paintball">
+        </div>
+        <div class="activity-card-content">
+          <div class="activity-card-meta">
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              ~20 min drive
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              Year-Round
+            </span>
+          </div>
+          <h3>Skirmish USA Paintball</h3>
+          <p>The world's largest paintball facility spans over 700 acres with 50+ unique playing fields. From dense woods and castles to tanks and airplanes, Skirmish offers terrain for every style of play.</p>
+          <p>Perfect for bachelor parties, team building, or a day of epic fun with friends. All equipment provided.</p>
+          <a href="https://www.skirmish.com/" target="_blank" rel="noopener" class="activity-card-link">
+            Visit Website
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Lehigh River Rafting -->
+      <div class="activity-card reveal">
+        <div class="activity-card-image">
+          <img src="images/rafting-activity.jpg" alt="Whitewater rafting on Lehigh River">
+        </div>
+        <div class="activity-card-content">
+          <div class="activity-card-meta">
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              ~30 min drive
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              Spring-Fall
+            </span>
+          </div>
+          <h3>Lehigh River Whitewater Rafting</h3>
+          <p>Pennsylvania's best whitewater rafting experience. The Lehigh River offers Class II-III rapids through the stunning Lehigh Gorge, with 12+ miles of scenic adventure.</p>
+          <p>Multiple outfitters offer guided trips ranging from family-friendly floats to dam-release adventures for thrill seekers.</p>
+          <a href="https://www.poconowhitewater.com/" target="_blank" rel="noopener" class="activity-card-link">
+            Visit Website
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Great Outdoors Section -->
+  <section class="section" style="background: var(--white);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Nature</span>
+        <h2>The Great Outdoors</h2>
+        <p class="lead" style="max-width: 650px; margin: var(--space-sm) auto 0;">The Poconos are a paradise for nature lovers. Waterfalls, gorges, lakes, and over 260 miles of trails including the famous Appalachian Trail running through Delaware Water Gap.</p>
+      </div>
+
+      <!-- 2x2 Grid -->
+      <div class="reveal town-grid">
+        <!-- Bushkill Falls -->
+        <div style="background: var(--cream); overflow: hidden;">
+          <div style="aspect-ratio: 16/10; overflow: hidden;">
+            <img src="images/bushkill-falls.jpg" alt="Bushkill Falls waterfall" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: var(--space-md);">
+            <div style="display: flex; align-items: center; gap: 0.375rem; font-size: 0.875rem; color: var(--forest); margin-bottom: 0.5rem;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              ~25 min drive
+            </div>
+            <h4 style="margin-bottom: 0.5rem;">Bushkill Falls</h4>
+            <p style="color: var(--charcoal-light); font-size: 0.9375rem; margin-bottom: 0.75rem;">The "Niagara of Pennsylvania" - eight stunning waterfalls cascading 100 feet over dramatic cliffs. Easy to challenging trails available.</p>
+            <a href="https://www.poconomountains.com/things-to-do/outdoors-adventure/waterfalls/bushkill-falls/" target="_blank" rel="noopener" style="font-size: 0.875rem; color: var(--burgundy); font-weight: 500;">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Delaware Water Gap -->
+        <div style="background: var(--cream); overflow: hidden;">
+          <div style="aspect-ratio: 16/10; overflow: hidden;">
+            <img src="images/delaware-water-gap.jpg" alt="Delaware Water Gap mountain vista" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: var(--space-md);">
+            <div style="display: flex; align-items: center; gap: 0.375rem; font-size: 0.875rem; color: var(--forest); margin-bottom: 0.5rem;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              ~20 min drive
+            </div>
+            <h4 style="margin-bottom: 0.5rem;">Delaware Water Gap</h4>
+            <p style="color: var(--charcoal-light); font-size: 0.9375rem; margin-bottom: 0.75rem;">70,000-acre National Recreation Area with Pennsylvania's best hiking trail. The Appalachian Trail runs right through.</p>
+            <a href="https://www.poconomountains.com/plan-your-vacation/explore-our-area/delaware-water-gap/" target="_blank" rel="noopener" style="font-size: 0.875rem; color: var(--burgundy); font-weight: 500;">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Lehigh Gorge -->
+        <div style="background: var(--cream); overflow: hidden;">
+          <div style="aspect-ratio: 16/10; overflow: hidden;">
+            <img src="images/lehigh-gorge.jpg" alt="Lehigh Gorge forest trail" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: var(--space-md);">
+            <div style="display: flex; align-items: center; gap: 0.375rem; font-size: 0.875rem; color: var(--forest); margin-bottom: 0.5rem;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              ~30 min drive
+            </div>
+            <h4 style="margin-bottom: 0.5rem;">Lehigh Gorge State Park</h4>
+            <p style="color: var(--charcoal-light); font-size: 0.9375rem; margin-bottom: 0.75rem;">33 miles of scenic trails through dramatic 900-foot gorge scenery. Perfect for hiking, biking, and fall foliage.</p>
+            <a href="https://www.poconomountains.com/blog/post/the-complete-guide-to-lehigh-gorge-state-park/" target="_blank" rel="noopener" style="font-size: 0.875rem; color: var(--burgundy); font-weight: 500;">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Lake Wallenpaupack -->
+        <div style="background: var(--cream); overflow: hidden;">
+          <div style="aspect-ratio: 16/10; overflow: hidden;">
+            <img src="images/lake-wallenpaupack.jpg" alt="Lake Wallenpaupack" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: var(--space-md);">
+            <div style="display: flex; align-items: center; gap: 0.375rem; font-size: 0.875rem; color: var(--forest); margin-bottom: 0.5rem;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              ~35 min drive
+            </div>
+            <h4 style="margin-bottom: 0.5rem;">Lake Wallenpaupack</h4>
+            <p style="color: var(--charcoal-light); font-size: 0.9375rem; margin-bottom: 0.75rem;">Pennsylvania's third-largest lake with 52 miles of shoreline. Boat, swim, jet ski, parasail, or relax lakeside.</p>
+            <a href="https://www.poconomountains.com/plan-your-vacation/explore-our-area/lake-wallenpaupack/" target="_blank" rel="noopener" style="font-size: 0.875rem; color: var(--burgundy); font-weight: 500;">Learn More &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Small Town Charm Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Explore</span>
+        <h2>Small Town Charm</h2>
+        <p class="lead" style="max-width: 650px; margin: var(--space-sm) auto 0;">Discover the unique character of the Poconos' most charming towns, just minutes from your doorstep.</p>
+      </div>
+
+      <!-- Two Towns Grid -->
+      <div class="reveal town-grid">
+        <!-- Stroudsburg -->
+        <div style="background: var(--white); overflow: hidden;">
+          <div style="aspect-ratio: 16/10; overflow: hidden;">
+            <img src="images/stroudsburg-downtown.jpg" alt="Downtown Stroudsburg Main Street" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: var(--space-md);">
+            <div style="display: flex; align-items: center; gap: 0.375rem; font-size: 0.875rem; color: var(--forest); margin-bottom: 0.5rem;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              ~15 min drive
+            </div>
+            <h3 style="margin-bottom: 0.5rem;">Stroudsburg</h3>
+            <p style="color: var(--charcoal-light); font-size: 0.9375rem;">A vibrant, walkable downtown packed with cozy cafes, craft coffee shops, and diverse restaurants - from farm-to-table American to Thai, Italian, and Mexican. Live music venues, local boutiques, and seasonal festivals.</p>
+          </div>
+        </div>
+
+        <!-- Jim Thorpe -->
+        <div style="background: var(--white); overflow: hidden;">
+          <div style="aspect-ratio: 16/10; overflow: hidden;">
+            <img src="images/jimthorpe-downtown.jpg" alt="Historic downtown Jim Thorpe" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: var(--space-md);">
+            <div style="display: flex; align-items: center; gap: 0.375rem; font-size: 0.875rem; color: var(--forest); margin-bottom: 0.5rem;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              ~30 min drive
+            </div>
+            <h3 style="margin-bottom: 0.5rem;">Jim Thorpe</h3>
+            <p style="color: var(--charcoal-light); font-size: 0.9375rem;">Known as the "Switzerland of America," this Victorian-era town offers stunning architecture, unique shops, galleries, and excellent restaurants. Magical during fall foliage season.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wineries Section -->
+  <section class="section" style="background: var(--burgundy); color: var(--cream);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" style="color: var(--gold);">Wine Country</span>
+        <h2 style="color: var(--cream);">Pocono Wine Trail</h2>
+        <p style="color: rgba(245,241,235,0.9); max-width: 700px; margin: var(--space-sm) auto 0;">Eight family-owned wineries wind through the beautiful Pocono Mountains. Pennsylvania is the fifth largest grape producer in America, and the region's unique climate produces exceptional wines.</p>
+      </div>
+
+      <div class="winery-grid reveal">
+        <div class="winery-card">
+          <h4>Cherry Valley Vineyards</h4>
+          <p>Since 1981 - over 100 awards for their wines. One of the Poconos' original wineries.</p>
+        </div>
+        <div class="winery-card">
+          <h4>Tolino Vineyards</h4>
+          <p>Governor's Cup winner - their Cabernet Franc was named Best Dry Grape Wine in Pennsylvania.</p>
+        </div>
+        <div class="winery-card">
+          <h4>Mountain View Vineyard</h4>
+          <p>The only winery on the trail that's also a distillery. Wine, spirits, and stunning views.</p>
+        </div>
+        <div class="winery-card">
+          <h4>Big Creek Vineyard</h4>
+          <p>Family-owned since 1996. White, rosé, red, and sweet fruit wines.</p>
+        </div>
+        <div class="winery-card">
+          <h4>Blue Ridge Vineyard</h4>
+          <p>17,000 sq ft tasting facility with wrap-around deck overlooking the vineyards.</p>
+        </div>
+        <div class="winery-card">
+          <h4>Pocono Beverage Trail</h4>
+          <p>Explore wineries, breweries, and distilleries with one convenient trail passport.</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-lg reveal">
+        <a href="https://www.thepoconowinetrail.com/" target="_blank" rel="noopener" class="btn btn-outline-white">Explore the Wine Trail</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fun for the Whole Family Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Family</span>
+        <h2>Fun for the Whole Family</h2>
+        <p class="lead" style="max-width: 700px; margin: var(--space-sm) auto 0;">Rain or shine, summer or winter - the Poconos offer world-class entertainment for all ages, indoors and out.</p>
+      </div>
+
+      <!-- 2x2 Grid -->
+      <div class="reveal town-grid">
+        <!-- Waterparks -->
+        <div style="background: var(--cream); overflow: hidden;">
+          <div style="aspect-ratio: 16/10; overflow: hidden;">
+            <img src="images/waterpark.jpg" alt="Indoor waterpark" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: var(--space-md);">
+            <div style="display: flex; align-items: center; gap: 0.375rem; font-size: 0.875rem; color: var(--forest); margin-bottom: 0.5rem;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              ~20-30 min drive
+            </div>
+            <h4 style="margin-bottom: 0.5rem;">World-Class Waterparks</h4>
+            <p style="color: var(--charcoal-light); font-size: 0.9375rem; margin-bottom: 0.75rem;">Indoor and outdoor options! Kalahari is North America's largest indoor waterpark. Aquatopia and Camelbeach nearby too.</p>
+            <a href="https://www.poconomountains.com/blog/post/a-guide-to-waterparks-in-the-poconos/" target="_blank" rel="noopener" style="font-size: 0.875rem; color: var(--burgundy); font-weight: 500;">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Pocono Raceway -->
+        <div style="background: var(--cream); overflow: hidden;">
+          <div style="aspect-ratio: 16/10; overflow: hidden;">
+            <img src="images/raceway.jpg" alt="Pocono Raceway" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: var(--space-md);">
+            <div style="display: flex; align-items: center; gap: 0.375rem; font-size: 0.875rem; color: var(--forest); margin-bottom: 0.5rem;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              ~25 min drive
+            </div>
+            <h4 style="margin-bottom: 0.5rem;">Pocono Raceway</h4>
+            <p style="color: var(--charcoal-light); font-size: 0.9375rem; margin-bottom: 0.75rem;">NASCAR's famous "Tricky Triangle" - 2.5 miles of racing excitement. Tours available year-round.</p>
+            <a href="https://www.poconomountains.com/things-to-do/nascar-racing/" target="_blank" rel="noopener" style="font-size: 0.875rem; color: var(--burgundy); font-weight: 500;">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Mount Airy Casino -->
+        <div style="background: var(--cream); overflow: hidden;">
+          <div style="aspect-ratio: 16/10; overflow: hidden;">
+            <img src="images/casino.jpg" alt="Mount Airy Casino Resort" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: var(--space-md);">
+            <div style="display: flex; align-items: center; gap: 0.375rem; font-size: 0.875rem; color: var(--forest); margin-bottom: 0.5rem;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              ~20 min drive
+            </div>
+            <h4 style="margin-bottom: 0.5rem;">Mount Airy Casino Resort</h4>
+            <p style="color: var(--charcoal-light); font-size: 0.9375rem; margin-bottom: 0.75rem;">Gaming, live entertainment, restaurants, and a full-service spa. Popular evening destination for nightlife.</p>
+            <a href="https://www.poconomountains.com/listing/mount-airy-casino-resort/1118/" target="_blank" rel="noopener" style="font-size: 0.875rem; color: var(--burgundy); font-weight: 500;">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Crossings Outlets -->
+        <div style="background: var(--cream); overflow: hidden;">
+          <div style="aspect-ratio: 16/10; overflow: hidden;">
+            <img src="images/shopping.jpg" alt="Pocono Premium Outlets shopping" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: var(--space-md);">
+            <div style="display: flex; align-items: center; gap: 0.375rem; font-size: 0.875rem; color: var(--forest); margin-bottom: 0.5rem;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              ~15 min drive
+            </div>
+            <h4 style="margin-bottom: 0.5rem;">Pocono Premium Outlets</h4>
+            <p style="color: var(--charcoal-light); font-size: 0.9375rem; margin-bottom: 0.75rem;">Over 100 outlet stores with top brands at discounted prices. Perfect for a rainy day.</p>
+            <a href="https://www.poconomountains.com/things-to-do/shopping/outlets/the-crossings-premium-outlets/" target="_blank" rel="noopener" style="font-size: 0.875rem; color: var(--burgundy); font-weight: 500;">Learn More &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Winter Activities -->
+  <section class="section" style="background: var(--white);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Winter</span>
+        <h2>Ski Season Awaits</h2>
+        <p class="lead" style="max-width: 600px; margin: var(--space-sm) auto 0;">Two major ski resorts just 20 minutes away make Stone Lake Inn the perfect base for winter adventures.</p>
+      </div>
+
+      <div class="activities-list reveal">
+        <div class="activity-item">
+          <div class="activity-icon" style="background: transparent;">
+            <img src="images/bluemountain.png" alt="Blue Mountain Resort" style="width: 50px; height: 50px; object-fit: contain;">
+          </div>
+          <div class="activity-content">
+            <h4>Blue Mountain Resort</h4>
+            <p>Pennsylvania's highest vertical at 1,082 feet with 40 trails. Excellent night skiing and snowmaking. Great for all skill levels.</p>
+            <span class="activity-distance">~20 minutes away</span>
+          </div>
+        </div>
+
+        <div class="activity-item">
+          <div class="activity-icon" style="background: transparent;">
+            <img src="images/camelback-resort-logo.webp" alt="Camelback Mountain Resort" style="width: 50px; height: 50px; object-fit: contain;">
+          </div>
+          <div class="activity-content">
+            <h4>Camelback Mountain</h4>
+            <p>39 trails plus one of the largest snow tubing parks in the U.S. with 42 lanes. A true four-season resort.</p>
+            <span class="activity-distance">~20 minutes away</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="container reveal">
+      <h2>Plan Your Adventure</h2>
+      <p>With so much to do, you might need more than one trip. Book your stay at Stone Lake Inn and start exploring.</p>
+      <a href="book.html" class="btn btn-outline-white">Check Availability</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo-name">Stone Lake Inn</span>
+          <p>A rustic retreat in the heart of the Pocono Mountains. Private lake, unique accommodations, and adventure at your doorstep.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="accommodations.html">Accommodations</a>
+          <a href="property.html">The Property</a>
+          <a href="things-to-do.html">Things To Do</a>
+          <a href="about.html">About Us</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Book</h4>
+          <a href="book.html">Reserve a Room</a>
+          <a href="book.html#policies">Policies</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:hello@stonelakeinn.com">hello@stonelakeinn.com</a>
+          <a href="tel:+15701234567">(570) 123-4567</a>
+          <p style="margin-top: 0.5rem; font-size: 0.875rem; color: rgba(245,241,235,0.6);">
+            407 Greenview Dr<br>
+            Saylorsburg, PA 18353
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Stone Lake Inn. All rights reserved.</p>
+        <p>Saylorsburg, Pennsylvania</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

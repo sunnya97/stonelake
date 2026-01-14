@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Stone Lake Inn's 5-acre property featuring a private 2-acre lake, hot tub, sauna, fire pit, and stunning Pocono Mountain views.">
+  <title>The Property | Stone Lake Inn</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    .amenity-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+      align-items: center;
+      padding: var(--space-xl) 0;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .amenity-section:nth-child(even) {
+      direction: rtl;
+    }
+    .amenity-section:nth-child(even) > * {
+      direction: ltr;
+    }
+    .amenity-section:last-of-type {
+      border-bottom: none;
+    }
+    @media (max-width: 900px) {
+      .amenity-section {
+        grid-template-columns: 1fr;
+      }
+      .amenity-section:nth-child(even) {
+        direction: ltr;
+      }
+    }
+    .amenity-image {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      position: relative;
+    }
+    .amenity-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .amenity-content h3 {
+      font-size: 1.75rem;
+      margin-bottom: var(--space-sm);
+    }
+    .amenity-content p {
+      color: var(--charcoal-light);
+      margin-bottom: var(--space-sm);
+    }
+    .amenity-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+    .amenity-feature-tag {
+      background: var(--cream);
+      padding: 0.375rem 0.875rem;
+      font-size: 0.875rem;
+      color: var(--forest);
+      border-left: 2px solid var(--gold);
+    }
+    .gallery-section {
+      background: var(--charcoal);
+      padding: var(--space-xl) 0;
+    }
+    .gallery-section .section-header h2 {
+      color: var(--cream);
+    }
+    .gallery-section .section-label {
+      color: var(--gold);
+    }
+    .property-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-md);
+      text-align: center;
+      padding: var(--space-lg) 0;
+    }
+    @media (max-width: 768px) {
+      .property-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .stat-item h3 {
+      font-size: 3rem;
+      color: var(--burgundy);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .stat-item p {
+      font-size: 0.9375rem;
+      color: var(--charcoal-light);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-name">Stone Lake Inn</span>
+        <span class="logo-tagline">Pocono Mountains</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="accommodations.html" class="nav-link">Accommodations</a>
+        <a href="property.html" class="nav-link active">The Property</a>
+        <a href="things-to-do.html" class="nav-link">Things To Do</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="book.html" class="nav-link nav-cta">Book Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="hero page-hero">
+    <img src="images/property-aerial.jpg" alt="Aerial view of Stone Lake Inn property" class="hero-image">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>The Property</h1>
+      <p class="hero-subtitle">Five acres of natural beauty in the heart of the Poconos</p>
+    </div>
+  </section>
+
+  <!-- Property Stats -->
+  <section class="section" style="background: var(--white);">
+    <div class="container">
+      <div class="property-stats reveal">
+        <div class="stat-item">
+          <h3>5</h3>
+          <p>Acres</p>
+        </div>
+        <div class="stat-item">
+          <h3>2</h3>
+          <p>Acre Lake</p>
+        </div>
+        <div class="stat-item">
+          <h3>5</h3>
+          <p>Guest Rooms</p>
+        </div>
+        <div class="stat-item">
+          <h3>1</h3>
+          <p>Skydiving Center Next Door</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Lake -->
+  <section class="section">
+    <div class="container">
+      <div class="amenity-section" style="padding-top: 0; border: none;">
+        <div class="amenity-image reveal">
+          <img src="images/lake-dock.jpg" alt="Private lake with red covered boat dock">
+        </div>
+        <div class="amenity-content reveal">
+          <h3>Private Lake</h3>
+          <p>The crown jewel of Stone Lake Inn is our two-acre private lake. Crystal clear and completely yours to enjoy during your stay, the lake offers a peaceful escape from everyday life.</p>
+          <p>Our charming red covered boat dock provides the perfect spot for morning coffee, afternoon reading, or evening stargazing.</p>
+          <div class="amenity-features">
+            <span class="amenity-feature-tag">Swimming</span>
+            <span class="amenity-feature-tag">Fishing</span>
+            <span class="amenity-feature-tag">Kayaking</span>
+            <span class="amenity-feature-tag">Paddle Boarding</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="amenity-section">
+        <div class="amenity-image reveal">
+          <img src="images/hot-tub.jpg" alt="Outdoor hot tub with mountain views">
+        </div>
+        <div class="amenity-content reveal">
+          <h3>Hot Tub & Sauna</h3>
+          <p>After a day of adventure&mdash;whether skiing, rafting, or paintballing&mdash;nothing beats sinking into our outdoor hot tub. With views of the property and stars overhead, it's the perfect way to unwind.</p>
+          <p>Our private sauna offers another way to relax and rejuvenate during your stay.</p>
+          <div class="amenity-features">
+            <span class="amenity-feature-tag">Outdoor Hot Tub</span>
+            <span class="amenity-feature-tag">Private Sauna</span>
+            <span class="amenity-feature-tag">Year-Round</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="amenity-section">
+        <div class="amenity-image reveal">
+          <img src="images/fire-pit.jpg" alt="Fire pit area with outdoor seating">
+        </div>
+        <div class="amenity-content reveal">
+          <h3>Fire Pit & Outdoor Spaces</h3>
+          <p>Gather around the fire pit for s'mores, stories, and starlit conversations. Our expansive outdoor spaces include comfortable seating areas, a BBQ grill, and a large grass field perfect for lawn games.</p>
+          <p>The property truly comes alive in fall when the surrounding foliage transforms into a stunning display of reds, oranges, and golds.</p>
+          <div class="amenity-features">
+            <span class="amenity-feature-tag">Fire Pit</span>
+            <span class="amenity-feature-tag">BBQ Grill</span>
+            <span class="amenity-feature-tag">Outdoor Seating</span>
+            <span class="amenity-feature-tag">Large Lawn</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="amenity-section">
+        <div class="amenity-image reveal">
+          <img src="images/skydiving-view.jpg" alt="View of Pegasus Airpark across the road">
+        </div>
+        <div class="amenity-content reveal">
+          <h3>Skydiving at Your Doorstep</h3>
+          <p>Directly across the road sits Pegasus Airpark, home to Pegasus Skydive Center&mdash;one of the premier skydiving facilities in the Northeast. Watch small planes take off and skydivers descend right from our property.</p>
+          <p>Feeling adventurous? Walk across the street for a tandem jump with experienced instructors. It's an unforgettable addition to any Pocono getaway.</p>
+          <div class="amenity-features">
+            <span class="amenity-feature-tag">Tandem Skydiving</span>
+            <span class="amenity-feature-tag">Plane Watching</span>
+            <span class="amenity-feature-tag">Just Steps Away</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery -->
+  <section class="gallery-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Gallery</span>
+        <h2>Explore the Grounds</h2>
+      </div>
+
+      <div class="gallery-grid reveal">
+        <div class="gallery-item featured">
+          <img src="images/gallery-1.jpg" alt="Aerial view of property in fall">
+          <div class="gallery-item-overlay"><span>Autumn Aerial</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-2.jpg" alt="The farmhouse front">
+          <div class="gallery-item-overlay"><span>The Inn</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-3.jpg" alt="Red boat dock">
+          <div class="gallery-item-overlay"><span>Lake Dock</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-4.jpg" alt="Lake view">
+          <div class="gallery-item-overlay"><span>On the Water</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-5.jpg" alt="Outdoor seating area">
+          <div class="gallery-item-overlay"><span>Outdoor Living</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-6.jpg" alt="Winter scene">
+          <div class="gallery-item-overlay"><span>Winter Magic</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-7.jpg" alt="Sunset over the lake">
+          <div class="gallery-item-overlay"><span>Golden Hour</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-8.jpg" alt="Property grounds">
+          <div class="gallery-item-overlay"><span>The Grounds</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full Amenities List -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Amenities</span>
+        <h2>Everything You Need</h2>
+      </div>
+
+      <div class="amenities-grid reveal" style="max-width: 900px; margin: 0 auto;">
+        <div class="amenity-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 17h18M5 17c0-3 2-6 7-6s7 3 7 6"/>
+          </svg>
+          <span>Private 2-Acre Lake</span>
+        </div>
+        <div class="amenity-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M8 12h8M12 8v8"/>
+          </svg>
+          <span>Hot Tub</span>
+        </div>
+        <div class="amenity-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2v8M5 5l3 3M19 5l-3 3"/>
+          </svg>
+          <span>Private Sauna</span>
+        </div>
+        <div class="amenity-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2C6.48 2 2 6 2 12s10 10 10 10"/>
+          </svg>
+          <span>Fire Pit</span>
+        </div>
+        <div class="amenity-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="4" y="4" width="16" height="16" rx="2"/>
+          </svg>
+          <span>BBQ Grill</span>
+        </div>
+        <div class="amenity-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 19h16M4 15h16M4 11h16"/>
+          </svg>
+          <span>Outdoor Seating</span>
+        </div>
+        <div class="amenity-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="4" width="20" height="16"/>
+          </svg>
+          <span>Large Grass Field</span>
+        </div>
+        <div class="amenity-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M2 12h20"/>
+          </svg>
+          <span>Free WiFi</span>
+        </div>
+        <div class="amenity-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="7" width="20" height="15" rx="2"/>
+          </svg>
+          <span>Smart TVs</span>
+        </div>
+        <div class="amenity-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
+          </svg>
+          <span>Coffee & Tea</span>
+        </div>
+        <div class="amenity-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+          </svg>
+          <span>Full Kitchen Access</span>
+        </div>
+        <div class="amenity-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="1" y="3" width="15" height="13" rx="2"/>
+            <path d="M16 8h5v13H8v-5"/>
+          </svg>
+          <span>Free Parking</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="container reveal">
+      <h2>Experience Stone Lake Inn</h2>
+      <p>Your private retreat in the Pocono Mountains awaits. Book your stay and discover the magic for yourself.</p>
+      <a href="book.html" class="btn btn-outline-white">Check Availability</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo-name">Stone Lake Inn</span>
+          <p>A rustic retreat in the heart of the Pocono Mountains. Private lake, unique accommodations, and adventure at your doorstep.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="accommodations.html">Accommodations</a>
+          <a href="property.html">The Property</a>
+          <a href="things-to-do.html">Things To Do</a>
+          <a href="about.html">About Us</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Book</h4>
+          <a href="book.html">Reserve a Room</a>
+          <a href="book.html#policies">Policies</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:hello@stonelakeinn.com">hello@stonelakeinn.com</a>
+          <a href="tel:+15701234567">(570) 123-4567</a>
+          <p style="margin-top: 0.5rem; font-size: 0.875rem; color: rgba(245,241,235,0.6);">
+            407 Greenview Dr<br>
+            Saylorsburg, PA 18353
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Stone Lake Inn. All rights reserved.</p>
+        <p>Saylorsburg, Pennsylvania</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

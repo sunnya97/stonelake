@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Claude Code local settings
+.claude/
+
+# Original source images (large files)
+images/originals/
+images/source/
+images/previews/
+
+# Editor directories
+.idea/
+.vscode/
