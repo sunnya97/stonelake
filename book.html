@@ -138,6 +138,86 @@
     .booking-form-container.hide {
       display: none;
     }
+    /* Pricing Section */
+    .pricing-section {
+      background: var(--white);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+    .pricing-section h3 {
+      text-align: center;
+      margin-bottom: var(--space-md);
+    }
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: var(--space-md);
+    }
+    .pricing-table th,
+    .pricing-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .pricing-table th {
+      background: var(--forest);
+      color: var(--white);
+      font-family: var(--font-heading);
+      font-weight: 500;
+      font-size: 0.9375rem;
+    }
+    .pricing-table th:first-child {
+      border-radius: 4px 0 0 0;
+    }
+    .pricing-table th:last-child {
+      border-radius: 0 4px 0 0;
+    }
+    .pricing-table td {
+      font-size: 0.9375rem;
+    }
+    .pricing-table tr:hover td {
+      background: var(--cream);
+    }
+    .pricing-table .room-name {
+      font-weight: 500;
+    }
+    .pricing-table .room-bath {
+      font-size: 0.8125rem;
+      color: var(--charcoal-light);
+    }
+    .pricing-notes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+    @media (max-width: 768px) {
+      .pricing-notes {
+        grid-template-columns: 1fr;
+      }
+      .pricing-table th,
+      .pricing-table td {
+        padding: 0.5rem;
+        font-size: 0.875rem;
+      }
+    }
+    .pricing-note-box {
+      background: var(--cream);
+      padding: var(--space-md);
+    }
+    .pricing-note-box h4 {
+      margin-bottom: 0.5rem;
+      color: var(--forest);
+      font-size: 1rem;
+    }
+    .pricing-note-box ul {
+      margin: 0;
+      padding-left: 1.25rem;
+      font-size: 0.9375rem;
+    }
+    .pricing-note-box li {
+      margin-bottom: 0.25rem;
+    }
   </style>
 </head>
 <body>
@@ -182,6 +262,88 @@
     <div class="container">
       <div class="booking-intro reveal mb-lg">
         <p class="lead">We're currently accepting bookings by request. Fill out the form below with your preferred dates and room, and we'll get back to you within 24 hours to confirm availability.</p>
+      </div>
+
+      <!-- Pricing Section -->
+      <div class="pricing-section reveal">
+        <h3>Room Rates</h3>
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>Room</th>
+              <th>Weekday (Sun–Thu)</th>
+              <th>Weekend (Fri–Sat)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="room-name">Emerald Room</span><br>
+                <span class="room-bath">Attached private bath</span>
+              </td>
+              <td>$175</td>
+              <td>$230</td>
+            </tr>
+            <tr>
+              <td>
+                <span class="room-name">Nautica Room</span><br>
+                <span class="room-bath">Attached private bath</span>
+              </td>
+              <td>$175</td>
+              <td>$230</td>
+            </tr>
+            <tr>
+              <td>
+                <span class="room-name">Wine Room</span><br>
+                <span class="room-bath">Detached private bath</span>
+              </td>
+              <td>$125</td>
+              <td>$160</td>
+            </tr>
+            <tr>
+              <td>
+                <span class="room-name">Aviator Room</span><br>
+                <span class="room-bath">Detached private bath</span>
+              </td>
+              <td>$125</td>
+              <td>$160</td>
+            </tr>
+            <tr>
+              <td>
+                <span class="room-name">Ski Lodge Room</span><br>
+                <span class="room-bath">Shared bath (3rd floor)</span>
+              </td>
+              <td>$110</td>
+              <td>$135</td>
+            </tr>
+            <tr>
+              <td>
+                <span class="room-name">Avengers Room</span><br>
+                <span class="room-bath">Shared bath (3rd floor)</span>
+              </td>
+              <td>$110</td>
+              <td>$135</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="pricing-notes">
+          <div class="pricing-note-box">
+            <h4>Extended Stay Discounts</h4>
+            <ul>
+              <li>7+ nights: 12% off</li>
+              <li>14+ nights: 18% off</li>
+              <li>30+ nights: 30% off (by approval)</li>
+            </ul>
+          </div>
+          <div class="pricing-note-box">
+            <h4>Good to Know</h4>
+            <ul>
+              <li>2-night minimum on weekends for Emerald & Nautica</li>
+              <li>Holiday rates may vary</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <div class="booking-grid">
@@ -247,11 +409,12 @@
                   <label for="room">Preferred Room</label>
                   <select id="room" name="room">
                     <option value="">No preference</option>
-                    <option value="emerald">The Emerald Room (Largest, En-Suite)</option>
-                    <option value="aviator">The Aviator Room (Aviation Theme)</option>
-                    <option value="wine">The Wine Room (Rustic Charm)</option>
-                    <option value="loft1">Loft Room One (Third Floor)</option>
-                    <option value="loft2">Loft Room Two (Third Floor)</option>
+                    <option value="emerald">Emerald Room ($175–$230)</option>
+                    <option value="nautica">Nautica Room ($175–$230)</option>
+                    <option value="wine">Wine Room ($125–$160)</option>
+                    <option value="aviator">Aviator Room ($125–$160)</option>
+                    <option value="ski-lodge">Ski Lodge Room ($110–$135)</option>
+                    <option value="avengers">Avengers Room ($110–$135)</option>
                     <option value="multiple">Multiple Rooms / Whole House</option>
                   </select>
                 </div>
@@ -305,31 +468,45 @@
           <div class="room-quick-list">
             <div class="room-quick-item">
               <div>
-                <span>The Emerald Room</span><br>
-                <span class="room-type">Largest | Private En-Suite</span>
+                <span>Emerald Room</span><br>
+                <span class="room-type">From $175/night</span>
               </div>
               <a href="accommodations.html#emerald" class="room-card-link">View</a>
             </div>
             <div class="room-quick-item">
               <div>
-                <span>The Aviator Room</span><br>
-                <span class="room-type">Aviation Theme | Hall Bath</span>
+                <span>Nautica Room</span><br>
+                <span class="room-type">From $175/night</span>
               </div>
-              <a href="accommodations.html#aviator" class="room-card-link">View</a>
+              <a href="accommodations.html#nautica" class="room-card-link">View</a>
             </div>
             <div class="room-quick-item">
               <div>
-                <span>The Wine Room</span><br>
-                <span class="room-type">Rustic Charm | Hall Bath</span>
+                <span>Wine Room</span><br>
+                <span class="room-type">From $125/night</span>
               </div>
               <a href="accommodations.html#wine" class="room-card-link">View</a>
             </div>
             <div class="room-quick-item">
               <div>
-                <span>Loft Rooms (2)</span><br>
-                <span class="room-type">Cozy | Shared Bath</span>
+                <span>Aviator Room</span><br>
+                <span class="room-type">From $125/night</span>
               </div>
-              <a href="accommodations.html#third-floor" class="room-card-link">View</a>
+              <a href="accommodations.html#aviator" class="room-card-link">View</a>
+            </div>
+            <div class="room-quick-item">
+              <div>
+                <span>Ski Lodge Room</span><br>
+                <span class="room-type">From $110/night</span>
+              </div>
+              <a href="accommodations.html#ski-lodge" class="room-card-link">View</a>
+            </div>
+            <div class="room-quick-item">
+              <div>
+                <span>Avengers Room</span><br>
+                <span class="room-type">From $110/night</span>
+              </div>
+              <a href="accommodations.html#avengers" class="room-card-link">View</a>
             </div>
           </div>
 
