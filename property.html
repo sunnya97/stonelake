@@ -144,36 +144,20 @@
     </div>
   </section>
 
-  <!-- Property Stats -->
-  <section class="section" style="background: var(--white);">
-    <div class="container">
-      <div class="property-stats reveal">
-        <div class="stat-item">
-          <h3>5</h3>
-          <p>Acres</p>
-        </div>
-        <div class="stat-item">
-          <h3>2</h3>
-          <p>Acre Lake</p>
-        </div>
-        <div class="stat-item">
-          <h3>5</h3>
-          <p>Guest Rooms</p>
-        </div>
-        <div class="stat-item">
-          <h3>1</h3>
-          <p>Skydiving Center Next Door</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- The Lake -->
   <section class="section">
     <div class="container">
       <div class="amenity-section" style="padding-top: 0; border: none;">
-        <div class="amenity-image reveal">
-          <img src="images/lake-relax.jpg" alt="Relaxing by the private lake">
+        <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm);">
+          <div style="grid-column: span 2; aspect-ratio: 16/9; overflow: hidden;">
+            <img src="images/lake-relax.jpg" alt="Relaxing by the private lake" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="aspect-ratio: 3/2; overflow: hidden;">
+            <img src="images/lake-1.jpg" alt="Lake view" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="aspect-ratio: 3/2; overflow: hidden;">
+            <img src="images/lake-2.jpg" alt="Lake scenery" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
         </div>
         <div class="amenity-content reveal">
           <h3>Private Lake</h3>
@@ -182,15 +166,22 @@
           <div class="amenity-features">
             <span class="amenity-feature-tag">Swimming</span>
             <span class="amenity-feature-tag">Fishing</span>
-            <span class="amenity-feature-tag">Kayaking</span>
-            <span class="amenity-feature-tag">Paddle Boarding</span>
+            <span class="amenity-feature-tag">Relaxation</span>
           </div>
         </div>
       </div>
 
       <div class="amenity-section">
-        <div class="amenity-image reveal">
-          <img src="images/lake-bridge.jpg" alt="Covered bridge on the walking trail">
+        <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm);">
+          <div style="grid-column: span 2; aspect-ratio: 16/9; overflow: hidden;">
+            <img src="images/lake-bridge.jpg" alt="Covered bridge on the walking trail" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="aspect-ratio: 3/2; overflow: hidden;">
+            <img src="images/trail-1.jpg" alt="Walking trail through the woods" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="aspect-ratio: 3/2; overflow: hidden;">
+            <img src="images/trail-2.jpg" alt="Trail scenery" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
         </div>
         <div class="amenity-content reveal">
           <h3>Walking Trail</h3>
@@ -221,8 +212,16 @@
       </div>
 
       <div class="amenity-section">
-        <div class="amenity-image reveal">
-          <img src="images/fire-pit.jpg" alt="Fire pit area with outdoor seating">
+        <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm);">
+          <div style="grid-column: span 2; aspect-ratio: 16/9; overflow: hidden;">
+            <img src="images/outdoor-2.jpg" alt="Fire pit area" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="aspect-ratio: 3/2; overflow: hidden;">
+            <img src="images/outdoor-1.jpg" alt="Lawn games" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="aspect-ratio: 3/2; overflow: hidden;">
+            <img src="images/outdoor-3.jpg" alt="Outdoor spaces at night" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
         </div>
         <div class="amenity-content reveal">
           <h3>Fire Pit & Outdoor Spaces</h3>
@@ -238,8 +237,16 @@
       </div>
 
       <div class="amenity-section">
-        <div class="amenity-image reveal">
-          <img src="images/pegasus-airpark.jpg" alt="View of Pegasus Airpark across the road">
+        <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm);">
+          <div style="grid-column: span 2; aspect-ratio: 16/9; overflow: hidden;">
+            <img src="images/pegasus-airpark.jpg" alt="View of Pegasus Airpark across the road" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="aspect-ratio: 3/2; overflow: hidden;">
+            <img src="images/skydive-1.jpg" alt="Skydiving experience" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="aspect-ratio: 3/2; overflow: hidden;">
+            <img src="images/skydive-2.jpg" alt="Tandem skydiving" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
         </div>
         <div class="amenity-content reveal">
           <h3>Skydiving at Your Doorstep</h3>
@@ -255,51 +262,6 @@
     </div>
   </section>
 
-  <!-- Photo Gallery -->
-  <section class="gallery-section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Gallery</span>
-        <h2>Explore the Grounds</h2>
-      </div>
-
-      <div class="gallery-grid reveal">
-        <div class="gallery-item featured">
-          <img src="images/gallery-1.jpg" alt="Aerial view of property in fall">
-          <div class="gallery-item-overlay"><span>Autumn Aerial</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/gallery-2.jpg" alt="The farmhouse front">
-          <div class="gallery-item-overlay"><span>The Inn</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/gallery-3.jpg" alt="Red boat dock">
-          <div class="gallery-item-overlay"><span>Lake Dock</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/gallery-4.jpg" alt="Lake view">
-          <div class="gallery-item-overlay"><span>On the Water</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/gallery-5.jpg" alt="Outdoor seating area">
-          <div class="gallery-item-overlay"><span>Outdoor Living</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/gallery-6.jpg" alt="Winter scene">
-          <div class="gallery-item-overlay"><span>Winter Magic</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/gallery-7.jpg" alt="Sunset over the lake">
-          <div class="gallery-item-overlay"><span>Golden Hour</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/gallery-8.jpg" alt="Property grounds">
-          <div class="gallery-item-overlay"><span>The Grounds</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Full Amenities List -->
   <section class="section">
     <div class="container">
@@ -310,78 +272,68 @@
 
       <div class="amenities-grid reveal" style="max-width: 900px; margin: 0 auto;">
         <div class="amenity-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M3 17h18M5 17c0-3 2-6 7-6s7 3 7 6"/>
-          </svg>
-          <span>Private 2-Acre Lake</span>
-        </div>
-        <div class="amenity-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M8 12h8M12 8v8"/>
-          </svg>
-          <span>Hot Tub</span>
-        </div>
-        <div class="amenity-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M12 2v8M5 5l3 3M19 5l-3 3"/>
-          </svg>
-          <span>Private Sauna</span>
-        </div>
-        <div class="amenity-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M12 2C6.48 2 2 6 2 12s10 10 10 10"/>
-          </svg>
-          <span>Fire Pit</span>
-        </div>
-        <div class="amenity-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="4" y="4" width="16" height="16" rx="2"/>
-          </svg>
-          <span>BBQ Grill</span>
-        </div>
-        <div class="amenity-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M4 19h16M4 15h16M4 11h16"/>
-          </svg>
-          <span>Outdoor Seating</span>
-        </div>
-        <div class="amenity-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="2" y="4" width="20" height="16"/>
-          </svg>
-          <span>Large Grass Field</span>
-        </div>
-        <div class="amenity-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M2 12h20"/>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/>
           </svg>
           <span>Free WiFi</span>
         </div>
         <div class="amenity-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="2" y="7" width="20" height="15" rx="2"/>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="15" x="2" y="7" rx="2"/><path d="M17 2l-5 5-5-5"/>
           </svg>
-          <span>Smart TVs</span>
+          <span>Smart TV</span>
         </div>
         <div class="amenity-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/>
           </svg>
           <span>Coffee & Tea</span>
         </div>
         <div class="amenity-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z"/><path d="M6 17h12"/>
           </svg>
           <span>Full Kitchen Access</span>
         </div>
         <div class="amenity-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="1" y="3" width="15" height="13" rx="2"/>
-            <path d="M16 8h5v13H8v-5"/>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/>
           </svg>
           <span>Free Parking</span>
+        </div>
+        <div class="amenity-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+          </svg>
+          <span>Indoor Fireplace</span>
+        </div>
+        <div class="amenity-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+          </svg>
+          <span>Sunroom</span>
+        </div>
+        <div class="amenity-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>
+          </svg>
+          <span>Dining Room</span>
+        </div>
+      </div>
+
+      <!-- Indoor Spaces Gallery -->
+      <div class="indoor-gallery reveal" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); margin-top: var(--space-lg); max-width: 900px; margin-left: auto; margin-right: auto;">
+        <div style="aspect-ratio: 4/3; overflow: hidden;">
+          <img src="images/living-room.jpg" alt="Living room" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div style="aspect-ratio: 4/3; overflow: hidden;">
+          <img src="images/kitchen.jpg" alt="Kitchen" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div style="aspect-ratio: 4/3; overflow: hidden;">
+          <img src="images/dining-room.jpg" alt="Dining room" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div style="aspect-ratio: 4/3; overflow: hidden;">
+          <img src="images/sunroom.png" alt="Sunroom" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
       </div>
     </div>

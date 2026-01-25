@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Photo gallery of Stone Lake Retreat - explore our private lake, grounds, and Pocono Mountain views.">
+  <title>Gallery | Stone Lake Retreat</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    .gallery-section {
+      background: var(--charcoal);
+      padding: var(--space-xl) 0;
+      min-height: 60vh;
+    }
+    .gallery-section .section-header h2 {
+      color: var(--cream);
+    }
+    .gallery-section .section-label {
+      color: var(--gold);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-sm);
+    }
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 500px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .gallery-item.featured {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    @media (max-width: 500px) {
+      .gallery-item.featured {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    .gallery-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+      display: flex;
+      align-items: flex-end;
+      padding: var(--space-md);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .gallery-item:hover .gallery-item-overlay {
+      opacity: 1;
+    }
+    .gallery-item-overlay span {
+      color: var(--white);
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-name">Stone Lake Retreat</span>
+        <span class="logo-tagline">Pocono Mountains</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="accommodations.html" class="nav-link">Accommodations</a>
+        <a href="property.html" class="nav-link">The Property</a>
+        <a href="things-to-do.html" class="nav-link">Things To Do</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="book.html" class="nav-link nav-cta">Book Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="hero page-hero" style="min-height: 40vh;">
+    <img src="images/hero-aerial.jpg" alt="Stone Lake Retreat aerial view" class="hero-image">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Gallery</h1>
+      <p class="hero-subtitle">Explore Stone Lake Retreat</p>
+    </div>
+  </section>
+
+  <!-- Photo Gallery -->
+  <section class="gallery-section">
+    <div class="container">
+      <div class="gallery-grid reveal">
+        <div class="gallery-item featured">
+          <img src="images/gallery-1.jpg" alt="Aerial view of property in fall">
+          <div class="gallery-item-overlay"><span>Autumn Aerial</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-2.jpg" alt="The farmhouse front">
+          <div class="gallery-item-overlay"><span>The Inn</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-3.jpg" alt="Red boat dock">
+          <div class="gallery-item-overlay"><span>Lake Dock</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-4.jpg" alt="Lake view">
+          <div class="gallery-item-overlay"><span>On the Water</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-5.jpg" alt="Outdoor seating area">
+          <div class="gallery-item-overlay"><span>Outdoor Living</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-6.jpg" alt="Winter scene">
+          <div class="gallery-item-overlay"><span>Winter Magic</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-7.jpg" alt="Sunset over the lake">
+          <div class="gallery-item-overlay"><span>Golden Hour</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-8.jpg" alt="Property grounds">
+          <div class="gallery-item-overlay"><span>The Grounds</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="container reveal">
+      <h2>Experience Stone Lake Retreat</h2>
+      <p>Your private retreat in the Pocono Mountains awaits. Book your stay and discover the magic for yourself.</p>
+      <a href="book.html" class="btn btn-outline-white">Check Availability</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo-name">Stone Lake Retreat</span>
+          <p>A rustic retreat in the heart of the Pocono Mountains. Private lake, unique accommodations, and adventure at your doorstep.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="accommodations.html">Accommodations</a>
+          <a href="property.html">The Property</a>
+          <a href="things-to-do.html">Things To Do</a>
+          <a href="about.html">About Us</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Book</h4>
+          <a href="book.html">Reserve a Room</a>
+          <a href="book.html#policies">Policies</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:enjoy@stonelakeretreat.com">enjoy@stonelakeretreat.com</a>
+          <a href="tel:+19735082079">(973) 508-2079</a>
+          <p style="margin-top: 0.5rem; font-size: 0.875rem; color: rgba(245,241,235,0.6);">
+            407 Greenview Dr<br>
+            Saylorsburg, PA 18353
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Stone Lake Retreat. All rights reserved.</p>
+        <p>Saylorsburg, Pennsylvania</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
