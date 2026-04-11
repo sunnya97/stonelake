@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Book your stay at Stone Lake Retreat. Request availability for our unique guest rooms in the Pocono Mountains.">
+  <meta name="description" content="Book your stay at Stone Lake Retreat through Evolve. Reserve our Pocono Mountains vacation rental today.">
   <title>Book Your Stay | Stone Lake Retreat</title>
 
   <!-- Fonts -->
@@ -20,52 +20,37 @@
       margin: 0 auto;
       text-align: center;
     }
-    .booking-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: var(--space-xl);
-      align-items: start;
+    .booking-intro .evolve-logo {
+      display: inline-block;
+      margin-bottom: var(--space-md);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--charcoal);
     }
-    @media (max-width: 900px) {
-      .booking-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    .booking-sidebar {
+    .booking-cta-box {
       background: var(--white);
-      padding: var(--space-lg);
-      position: sticky;
-      top: 100px;
+      padding: var(--space-xl);
+      max-width: 600px;
+      margin: var(--space-lg) auto;
+      text-align: center;
     }
-    .booking-sidebar h3 {
+    .booking-cta-box h3 {
+      margin-bottom: var(--space-sm);
+    }
+    .booking-cta-box p {
       margin-bottom: var(--space-md);
-      padding-bottom: var(--space-sm);
-      border-bottom: 1px solid var(--cream-dark);
-    }
-    .room-quick-list {
-      margin-bottom: var(--space-md);
-    }
-    .room-quick-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: var(--space-sm) 0;
-      border-bottom: 1px solid var(--cream);
-    }
-    .room-quick-item:last-child {
-      border-bottom: none;
-    }
-    .room-quick-item span {
-      font-size: 0.9375rem;
-    }
-    .room-quick-item .room-type {
-      font-size: 0.8125rem;
       color: var(--charcoal-light);
+    }
+    .booking-cta-box .btn {
+      font-size: 1.125rem;
+      padding: 1rem 2.5rem;
     }
     .contact-quick {
       background: var(--cream);
       padding: var(--space-md);
-      margin-top: var(--space-md);
+      max-width: 600px;
+      margin: var(--space-lg) auto 0;
+      text-align: center;
     }
     .contact-quick h4 {
       margin-bottom: var(--space-sm);
@@ -77,12 +62,6 @@
     .contact-quick a {
       display: block;
       margin-bottom: 0.25rem;
-    }
-    .form-note {
-      font-size: 0.875rem;
-      color: var(--charcoal-light);
-      font-style: italic;
-      margin-top: var(--space-xs);
     }
     .policy-section {
       background: var(--white);
@@ -117,28 +96,6 @@
       font-size: 0.9375rem;
       color: var(--charcoal-light);
     }
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: var(--space-xl);
-      background: var(--cream);
-    }
-    .form-success.show {
-      display: block;
-    }
-    .form-success svg {
-      width: 64px;
-      height: 64px;
-      color: var(--forest);
-      margin-bottom: var(--space-sm);
-    }
-    .form-success h3 {
-      margin-bottom: var(--space-sm);
-    }
-    .booking-form-container.hide {
-      display: none;
-    }
-    /* Pricing Section */
   </style>
 </head>
 <body>
@@ -163,7 +120,7 @@
         <a href="property.html" class="nav-link">The Property</a>
         <a href="things-to-do.html" class="nav-link">Things To Do</a>
         <a href="about.html" class="nav-link">About</a>
-        <a href="book.html" class="nav-link nav-cta active">Book Now</a>
+        <a href="https://evolve.com/vacation-rentals/us/pa/saylorsburg/579409" target="_blank" rel="noopener" class="nav-link nav-cta active">Book Now</a>
       </nav>
     </div>
   </header>
@@ -182,174 +139,21 @@
   <section class="section booking-section">
     <div class="container">
       <div class="booking-intro reveal mb-lg">
-        <p class="lead">We're currently accepting bookings by request. Fill out the form below with your preferred dates and room, and we'll get back to you within 24 hours to confirm availability.</p>
+        <p class="lead">We've partnered with Evolve to make booking your stay simple and secure. Stone Lake Retreat is available as a whole-house rental&mdash;book the entire property and enjoy it all to yourselves. Check availability, view pricing, and reserve your dates directly through our Evolve listing.</p>
+        <p style="margin-top: var(--space-sm); color: var(--charcoal-light);">Interested in booking specific rooms rather than the full house? Reach out to us at <a href="mailto:stonelake973@gmail.com">stonelake973@gmail.com</a> and we'll do our best to accommodate your request.</p>
       </div>
 
-      <div class="booking-grid">
-        <!-- Booking Form -->
-        <div>
-          <!-- Success Message -->
-          <div class="form-success" id="formSuccess">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
-              <polyline points="22 4 12 14.01 9 11.01"/>
-            </svg>
-            <h3>Request Received!</h3>
-            <p>Thank you for your interest in Stone Lake Retreat. We'll review your request and respond within 24 hours with availability and next steps.</p>
-            <a href="index.html" class="btn btn-secondary mt-md">Return Home</a>
-          </div>
+      <div class="booking-cta-box reveal">
+        <h3>Reserve on Evolve</h3>
+        <p>View real-time availability, pricing, and book your Pocono getaway instantly.</p>
+        <a href="https://evolve.com/vacation-rentals/us/pa/saylorsburg/579409" target="_blank" rel="noopener" class="btn btn-primary">Book on Evolve</a>
+      </div>
 
-          <!-- Form -->
-          <div class="booking-form-container" id="formContainer">
-            <!--
-              INTEGRATION NOTE:
-              This form is ready for Formspree integration. To enable:
-              1. Sign up at formspree.io
-              2. Create a new form
-              3. Replace the action URL below with your Formspree endpoint
-              Example: action="https://formspree.io/f/YOUR_FORM_ID"
-            -->
-            <form class="booking-form reveal" id="bookingForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="firstName">First Name *</label>
-                  <input type="text" id="firstName" name="firstName" required>
-                </div>
-                <div class="form-group">
-                  <label for="lastName">Last Name *</label>
-                  <input type="text" id="lastName" name="lastName" required>
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="email">Email Address *</label>
-                  <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                  <label for="phone">Phone Number</label>
-                  <input type="tel" id="phone" name="phone">
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="checkIn">Check-In Date *</label>
-                  <input type="date" id="checkIn" name="checkIn" required>
-                </div>
-                <div class="form-group">
-                  <label for="checkOut">Check-Out Date *</label>
-                  <input type="date" id="checkOut" name="checkOut" required>
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="room">Preferred Room</label>
-                  <select id="room" name="room">
-                    <option value="">No preference</option>
-                    <option value="emerald">Emerald Room</option>
-                    <option value="nautica">Nautica Room</option>
-                    <option value="wine">Burgundy Room</option>
-                    <option value="aviator">Aviator Room</option>
-                    <option value="ski-lodge">Alpine Lodge</option>
-                    <option value="avengers">The Lair</option>
-                    <option value="multiple">Multiple Rooms / Whole House</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="guests">Number of Guests *</label>
-                  <select id="guests" name="guests" required>
-                    <option value="1">1 Guest</option>
-                    <option value="2" selected>2 Guests</option>
-                    <option value="3">3 Guests</option>
-                    <option value="4">4 Guests</option>
-                    <option value="5">5 Guests</option>
-                    <option value="6+">6+ Guests</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="occasion">Special Occasion?</label>
-                <select id="occasion" name="occasion">
-                  <option value="">None / Just a getaway</option>
-                  <option value="anniversary">Anniversary</option>
-                  <option value="birthday">Birthday</option>
-                  <option value="honeymoon">Honeymoon</option>
-                  <option value="family">Family Reunion</option>
-                  <option value="friends">Friends Trip</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="message">Additional Information</label>
-                <textarea id="message" name="message" placeholder="Tell us about your trip, any special requests, or questions you have..."></textarea>
-                <p class="form-note">Let us know if you're planning any special activities like skydiving, paintball, or if you have any accessibility needs.</p>
-              </div>
-
-              <div class="form-group">
-                <label style="display: flex; align-items: flex-start; gap: 0.5rem; cursor: pointer; text-transform: none; letter-spacing: normal;">
-                  <input type="checkbox" name="policies" required style="width: auto; margin-top: 0.25rem;">
-                  <span style="font-size: 0.9375rem; line-height: 1.5;">I have read and agree to the booking policies below. *</span>
-                </label>
-              </div>
-
-              <button type="submit" class="form-submit">Send Booking Request</button>
-            </form>
-          </div>
-        </div>
-
-        <!-- Sidebar -->
-        <div class="booking-sidebar reveal">
-          <h3>Our Rooms</h3>
-          <div class="room-quick-list">
-            <div class="room-quick-item">
-              <div>
-                <span>Emerald Room</span>
-              </div>
-              <a href="accommodations.html#emerald" class="room-card-link">View</a>
-            </div>
-            <div class="room-quick-item">
-              <div>
-                <span>Nautica Room</span>
-              </div>
-              <a href="accommodations.html#nautica" class="room-card-link">View</a>
-            </div>
-            <div class="room-quick-item">
-              <div>
-                <span>Burgundy Room</span>
-              </div>
-              <a href="accommodations.html#wine" class="room-card-link">View</a>
-            </div>
-            <div class="room-quick-item">
-              <div>
-                <span>Aviator Room</span>
-              </div>
-              <a href="accommodations.html#aviator" class="room-card-link">View</a>
-            </div>
-            <div class="room-quick-item">
-              <div>
-                <span>Alpine Lodge</span>
-              </div>
-              <a href="accommodations.html#ski-lodge" class="room-card-link">View</a>
-            </div>
-            <div class="room-quick-item">
-              <div>
-                <span>The Lair</span>
-              </div>
-              <a href="accommodations.html#avengers" class="room-card-link">View</a>
-            </div>
-          </div>
-
-          <div class="contact-quick">
-            <h4>Prefer to Call?</h4>
-            <p>We're happy to answer questions or take your booking by phone.</p>
-            <a href="tel:+15706647927">(570) 664-7927</a>
-            <a href="mailto:stonelake973@gmail.com">stonelake973@gmail.com</a>
-          </div>
-        </div>
+      <div class="contact-quick reveal">
+        <h4>Questions?</h4>
+        <p>Have questions before booking? We're happy to help.</p>
+        <a href="tel:+15706647927">(570) 664-7927</a>
+        <a href="mailto:stonelake973@gmail.com">stonelake973@gmail.com</a>
       </div>
 
       <!-- Policies Section -->
@@ -427,7 +231,7 @@
 
         <div class="footer-col">
           <h4>Book</h4>
-          <a href="book.html">Reserve a Room</a>
+          <a href="https://evolve.com/vacation-rentals/us/pa/saylorsburg/579409" target="_blank" rel="noopener">Reserve a Room</a>
           <a href="book.html#policies">Policies</a>
         </div>
 
@@ -451,33 +255,5 @@
 
   <!-- Scripts -->
   <script src="js/main.js"></script>
-  <script>
-    // Simple form handling for demo
-    // In production, this would be handled by Formspree or similar
-    document.getElementById('bookingForm').addEventListener('submit', function(e) {
-      // If using Formspree, remove this preventDefault
-      // The form will submit normally to Formspree and redirect back
-
-      // For demo purposes, show success message
-      // Remove this block when using Formspree
-      e.preventDefault();
-      document.getElementById('formContainer').classList.add('hide');
-      document.getElementById('formSuccess').classList.add('show');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Set minimum date to today for date inputs
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById('checkIn').setAttribute('min', today);
-    document.getElementById('checkOut').setAttribute('min', today);
-
-    // Update checkout minimum when checkin changes
-    document.getElementById('checkIn').addEventListener('change', function() {
-      document.getElementById('checkOut').setAttribute('min', this.value);
-      if (document.getElementById('checkOut').value < this.value) {
-        document.getElementById('checkOut').value = this.value;
-      }
-    });
-  </script>
 </body>
 </html>
